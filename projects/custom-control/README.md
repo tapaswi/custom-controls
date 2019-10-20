@@ -3,9 +3,11 @@ The library enabling two way data binding with formating. Validation based on th
 
 ### Quick links
 
-[Example application](https://tapaswi.github.io)
+[Demo](https://customcontrol.stackblitz.io/)
  |
-[StackBlitz example](https://stackblitz.com/github/tapaswi/custom-control)
+[StackBlitz example](https://stackblitz.com/edit/customcontrol)
+ |
+[Documentation](https://tapaswi.github.io/custom-controls/)
 
 ### Installing and usage
 

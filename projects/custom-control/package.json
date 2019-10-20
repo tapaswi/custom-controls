@@ -1,7 +1,7 @@
 {
   "name": "custom-control",
   "description": "The library enabling two way data binding with formating. Validation based on the type of format of input.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/tapaswi/custom-controls.git"
@@ -21,7 +21,7 @@
   "bugs": {
     "url": "https://github.com/tapaswi/custom-controls/issues"
   },
-  "homepage": "https://github.com/tapaswi/custom-controls#readme",
+  "homepage": "https://tapaswi.github.io/custom-controls/",
   "dependencies": {
   },
   "peerDependencies": {
