@@ -1,0 +1,5 @@
+<div class="custom-input" [ngClass]="format" tabindex="0"
+    [attr.contenteditable]="!readOnly"
+    (focusout)="anounceModelChange($event)">
+    {{data | inputFormat : format : places}}
+</div>

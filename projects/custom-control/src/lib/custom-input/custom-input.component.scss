@@ -1,0 +1,21 @@
+.custom-input {
+  width: inherit;
+  min-width: fit-content;
+  border: 1px solid #c3c3c3;
+  height: 30px;
+  text-align: right;
+  padding: 4px;
+}
+
+.number {
+    text-align: right;
+}
+
+.string {
+    text-align: left;
+}
+
+.percent {
+    text-align: right;
+}
+

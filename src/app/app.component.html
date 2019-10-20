@@ -1,0 +1,27 @@
+<div class="container">
+    <br/>
+    <div class="row center">
+        <h3> Custom Control Demo </h3>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-md-12 custom-row" *ngFor="let input of inputData">
+            <div class="col-md-4">
+                <label>{{input.name}}</label>
+            </div>
+            <div class="col-md-5">
+                <c-input class="input-fields"
+                    [(model)]="input.value" 
+                    [format]="input.format" 
+                    [places]="input.places" 
+                    [readOnly]="input.readOnly" 
+                    (modelChange)="dataChange($event, input.value)">
+                </c-input>
+            </div>
+            <div class="col-md-3">
+                <span><b>Output</b> :: {{input.value}}</span>
+            </div>
+        </div>
+    </div>
+</div>
+
