@@ -14,16 +14,17 @@ export class CustomInputComponent implements OnInit{
   }
   public set model(value) {
     this.data = this.convertor.convertTo(value, this.format);
-    this.modelChange.emit(this.data);
+    // this.modelChange.emit(this.data);
   }
   
   @Input() format?: string;
   @Input() places?: number;
   @Input() readOnly: boolean;
+  @Input() culture: string = 'en-US';
   
-  @Output() public modelChange: EventEmitter<number> = new EventEmitter<number>();
+  @Output() public modelChange: EventEmitter<any> = new EventEmitter<any>();
 
-  public data: number;
+  public data: any;
   
   constructor(private convertor: ConversionService) {
   }
@@ -48,10 +49,10 @@ export class CustomInputComponent implements OnInit{
   */
   @HostListener('keydown', ['$event']) onKeyup(event) {
     if ((this.format == 'number' || this.format == 'percent')
-      && (event.keyCode < 96 && event.keyCode != 8 && event.keyCode != 9) || (event.keyCode > 105 && event.keyCode != 110)) {
+    && (event.key != 'Backspace' && event.key != 'Tab' && event.key != '.' && isNaN(event.key))) {
         event.preventDefault();
     }
-    if (event.keyCode === 13) {
+    if (event.key == 'Enter') {
       event.preventDefault();
       event.target.blur();
     }

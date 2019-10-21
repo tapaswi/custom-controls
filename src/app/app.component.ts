@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  public culture = 'en-US';
   public inputData = [
     {
       name: 'Percent Field - 2 decimal places',
