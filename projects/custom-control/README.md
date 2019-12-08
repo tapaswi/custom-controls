@@ -39,7 +39,8 @@ input = {
     format: 'number',
     places: '2',
     readOnly: false
-}
+};
+culture = 'en-US';
 ```
 
 ```HTML
@@ -48,6 +49,7 @@ input = {
     [format]="input.format" 
     [places]="input.places" 
     [readOnly]="input.readOnly" 
+    [culture]="culture"
     (modelChange)="dataChange($event, input.value)">
 </c-input>
 ```

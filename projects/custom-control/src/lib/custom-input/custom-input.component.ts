@@ -25,6 +25,7 @@ export class CustomInputComponent implements OnInit{
   @Output() public modelChange: EventEmitter<any> = new EventEmitter<any>();
 
   public data: any;
+  private isDirty: boolean = false; 
   
   constructor(private convertor: ConversionService) {
   }
@@ -33,10 +34,15 @@ export class CustomInputComponent implements OnInit{
   }
 
   public anounceModelChange(event) {
+    if (!this.isDirty) return;
     this.data = this.convertor.convertTo(event.target.innerText, this.format);
     this.modelChange.emit(this.data);
   }
 
+  // public test(event) {
+  //   console.log(event);
+  //   // .execCommand('selectAll');//, false, null);
+  // }
   /*
   keyCodes ::
               96  - 0
@@ -49,10 +55,13 @@ export class CustomInputComponent implements OnInit{
   */
   @HostListener('keydown', ['$event']) onKeyup(event) {
     if ((this.format == 'number' || this.format == 'percent')
-    && (event.key != 'Backspace' && event.key != 'Tab' && event.key != '.' && isNaN(event.key))) {
+    && (event.key != 'Backspace' && event.key != 'Delete' && event.key != '.' && isNaN(event.key)
+        && event.key != 'ArrowRight' && event.key != 'ArrowLeft' && event.key != 'ArrowDown' && event.key != 'ArrowUp')) {
         event.preventDefault();
+    } else {
+      this.isDirty=true;
     }
-    if (event.key == 'Enter') {
+    if (event.key == 'Enter' || event.key == 'Tab') {
       event.preventDefault();
       event.target.blur();
     }
